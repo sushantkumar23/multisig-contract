@@ -1,0 +1,82 @@
+{
+  "version": "0.1.0",
+  "name": "multisig_contract",
+  "instructions": [
+    {
+      "name": "createMultisig",
+      "accounts": [
+        {
+          "name": "multisigAccount",
+          "isMut": true,
+          "isSigner": true
+        }
+      ],
+      "args": [
+        {
+          "name": "owners",
+          "type": {
+            "vec": "publicKey"
+          }
+        },
+        {
+          "name": "threshold",
+          "type": "u64"
+        },
+        {
+          "name": "nonce",
+          "type": "u8"
+        }
+      ]
+    }
+  ],
+  "accounts": [
+    {
+      "name": "MultisigAccount",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "owners",
+            "type": {
+              "vec": "publicKey"
+            }
+          },
+          {
+            "name": "threshold",
+            "type": "u64"
+          },
+          {
+            "name": "nonce",
+            "type": "u8"
+          },
+          {
+            "name": "ownerSetSeqno",
+            "type": "u32"
+          }
+        ]
+      }
+    }
+  ],
+  "types": [
+    {
+      "name": "ErrorCode",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "NoOwners"
+          },
+          {
+            "name": "InvalidThreshold"
+          },
+          {
+            "name": "UniqueOwners"
+          }
+        ]
+      }
+    }
+  ],
+  "metadata": {
+    "address": "7w1dEaqHLFVY9fp1zMg5CJYEPXGGS3QJfcZfQ8A71hCr"
+  }
+}
