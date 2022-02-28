@@ -17,7 +17,7 @@ export default function Home() {
   async function createSafe() {
     const provider = await getProvider()
     const program = new Program(idl, programId, provider)
-    await program.rpc.createMultisig
+    await program.rpc.createMultisig({})
   }
   return (
     <div className="flex flex-col justify-center h-screen items-center">
